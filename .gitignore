@@ -1,0 +1,35 @@
+# Операционная система
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.coverage
+
+# IDE/Редакторы
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Конфигурация среды
+.env
+
+# Docker
+*.pid
+
+# Streamlit
+.streamlit/
+
+# Логи
+logs/
+*.log
+*.out
+*.err
