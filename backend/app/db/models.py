@@ -4,30 +4,33 @@ import os
 import sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey, text
+from sqlalchemy import ForeignKey, text
 from sqlalchemy.orm import Mapped, mapped_column
 from db.database import Base
 
 intpk = Annotated[int, mapped_column(primary_key=True)]
 
-class clientOrm(Base):
+class clientModel(Base):
     __tablename__ = "client"  
 
     id: Mapped[intpk]
     name: Mapped[str]
+    country: Mapped[str]
 
 
-class cryptocurrencyOrm(Base):
+class cryptocurrencyModel(Base):
     __tablename__ = "cryptocurrency" 
 
     id: Mapped[intpk]
     name: Mapped[str]
     
 
-class assetOrm(Base):
+class assetModel(Base):
     __tablename__ = "asset" 
 
-    client_id: Mapped[int] = mapped_column(ForeignKey("client.id", ondelete="CASCADE"), primary_key=True)
-    cryptocurrency_id: Mapped[int] = mapped_column(ForeignKey("cryptocurrency.id", ondelete="CASCADE"), primary_key=True)
+    id: Mapped[intpk]
+    client_id: Mapped[int] = mapped_column(ForeignKey("client.id", ondelete="CASCADE"))
+    cryptocurrency_id: Mapped[int] = mapped_column(ForeignKey("cryptocurrency.id", ondelete="CASCADE"))
     quantity: Mapped[float]
+    price: Mapped[float]
     created_at: Mapped[datetime.datetime] = mapped_column(server_default=text("TIMEZONE('utc', now())"))

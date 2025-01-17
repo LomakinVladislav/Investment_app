@@ -1,7 +1,13 @@
 import os
 import sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from db.queries.orm import create_tables, insert_data
+from api.base import api_router
 
-create_tables()
-insert_data()
+from fastapi import FastAPI
+
+def start_application():
+    app = FastAPI(title = "Investment App", version="beta")
+    app.include_router(api_router)
+    return app
+
+app = start_application()
