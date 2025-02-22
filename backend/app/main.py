@@ -1,7 +1,5 @@
-import os
-import sys
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from api.base import api_router
+
+from backend.app.api.base import api_router
 
 from fastapi import FastAPI
 

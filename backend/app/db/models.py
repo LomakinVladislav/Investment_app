@@ -1,12 +1,9 @@
 from typing import Annotated
 import datetime
-import os
-import sys
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
 
 from sqlalchemy import ForeignKey, text
 from sqlalchemy.orm import Mapped, mapped_column
-from db.database import Base
+from backend.app.db.database import Base
 
 intpk = Annotated[int, mapped_column(primary_key=True)]
 

@@ -1,17 +1,12 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-import sys
-from pathlib import Path
-
-sys.path.append(str(Path(__file__).resolve().parent))
-
-
 class Settings(BaseSettings):
     DB_HOST: str
     DB_PORT: int
     DB_USER: str
     DB_PASS: str
     DB_NAME: str
+    CMC_API_KEY: str
     
     @property
     def DATABASE_URL_asyncpg(self):

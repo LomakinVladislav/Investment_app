@@ -1,12 +1,10 @@
 # Файл с описанием функций (методов) для создания запросов и команд базе данных
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-import os
-import sys
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from db.models import assetModel, clientModel, cryptocurrencyModel
-from db.database import Base, async_engine
-from db.schemas import ClientAddSchema
+
+from backend.app.db.models import assetModel, clientModel, cryptocurrencyModel
+from backend.app.db.database import Base, async_engine
+from backend.app.db.schemas import ClientAddSchema
 
 
 async def create_tables():
