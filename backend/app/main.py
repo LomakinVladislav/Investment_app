@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.insert(2, os.path.join(sys.path[0], '../..'))
 
 from backend.app.api.base import api_router
 
